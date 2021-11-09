@@ -4,7 +4,7 @@ import Config
 config :dogger, Dogger.Repo,
   username: "sarathornsberry",
   password: "postgres",
-  database: "dogger_dev",
+  database: "dogger",
   hostname: "localhost",
   show_sensitive_data_on_connection_error: true,
   pool_size: 10

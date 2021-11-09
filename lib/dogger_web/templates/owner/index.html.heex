@@ -1,0 +1,32 @@
+<h1>Listing Owners</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>First name</th>
+      <th>Last name</th>
+      <th>Phone number</th>
+      <th>Email</th>
+
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+<%= for owner <- @owners do %>
+    <tr>
+      <td><%= owner.first_name %></td>
+      <td><%= owner.last_name %></td>
+      <td><%= owner.phone_number %></td>
+      <td><%= owner.email %></td>
+
+      <td>
+        <span><%= link "Show", to: Routes.owner_path(@conn, :show, owner) %></span>
+        <span><%= link "Edit", to: Routes.owner_path(@conn, :edit, owner) %></span>
+        <span><%= link "Delete", to: Routes.owner_path(@conn, :delete, owner), method: :delete, data: [confirm: "Are you sure?"] %></span>
+      </td>
+    </tr>
+<% end %>
+  </tbody>
+</table>
+
+<span><%= link "New Owner", to: Routes.owner_path(@conn, :new) %></span>
