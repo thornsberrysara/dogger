@@ -1,0 +1,33 @@
+<h1>Show Pet</h1>
+
+<ul>
+
+  <li>
+    <strong>Name:</strong>
+    <%= @pet.name %>
+  </li>
+
+  <li>
+    <strong>Breed:</strong>
+    <%= @pet.breed %>
+  </li>
+
+  <li>
+    <strong>Dob:</strong>
+    <%= @pet.dob %>
+  </li>
+
+  <li>
+    <strong>Weight:</strong>
+    <%= @pet.weight %>
+  </li>
+
+  <li>
+    <strong>Medications:</strong>
+    <%= @pet.medications %>
+  </li>
+
+</ul>
+
+<span><%= link "Edit", to: Routes.pet_path(@conn, :edit, @pet) %></span> |
+<span><%= link "Back", to: Routes.pet_path(@conn, :index) %></span>
