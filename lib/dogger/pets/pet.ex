@@ -8,6 +8,7 @@ defmodule Dogger.Pets.Pet do
     field :medications, :boolean, default: false
     field :name, :string
     field :weight, :integer
+    belongs_to :owner, Dogger.Owners.Owner
 
     timestamps()
   end
