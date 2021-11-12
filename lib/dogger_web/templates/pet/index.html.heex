@@ -4,6 +4,7 @@
   <thead>
     <tr>
       <th>Name</th>
+      <th>Owner ID</th>
       <th>Breed</th>
       <th>Dob</th>
       <th>Weight</th>
@@ -16,6 +17,7 @@
 <%= for pet <- @pets do %>
     <tr>
       <td><%= pet.name %></td>
+      <td><%= pet.owner.email %></td>
       <td><%= pet.breed %></td>
       <td><%= pet.dob %></td>
       <td><%= pet.weight %></td>

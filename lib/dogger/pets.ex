@@ -18,7 +18,8 @@ defmodule Dogger.Pets do
 
   """
   def list_pets do
-    Repo.all(Pet)
+    pets = Repo.all(Pet)
+    Repo.preload(pets, :owner)
   end
 
   @doc """
@@ -35,7 +36,10 @@ defmodule Dogger.Pets do
       ** (Ecto.NoResultsError)
 
   """
-  def get_pet!(id), do: Repo.get!(Pet, id)
+  def get_pet!(id) do
+    pet = Repo.get!(Pet, id)
+    Repo.preload(pet, :owner)
+  end
 
   @doc """
   Creates a pet.
