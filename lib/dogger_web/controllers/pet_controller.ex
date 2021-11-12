@@ -11,7 +11,8 @@ defmodule DoggerWeb.PetController do
 
   def new(conn, _params) do
     changeset = Pets.change_pet(%Pet{})
-    render(conn, "new.html", changeset: changeset)
+    owners = Dogger.Owners.list_owners()
+    render(conn, "new.html", changeset: changeset, owners: owners)
   end
 
   def create(conn, %{"pet" => pet_params}) do
