@@ -5,6 +5,7 @@ defmodule Dogger.Stays.Stay do
   schema "stays" do
     field :arrival_date, :date
     field :departure_date, :date
+    belongs_to :pet, Dogger.Pets.Pet
 
     timestamps()
   end
