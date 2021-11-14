@@ -13,7 +13,7 @@ defmodule Dogger.Stays.Stay do
   @doc false
   def changeset(stay, attrs) do
     stay
-    |> cast(attrs, [:arrival_date, :departure_date])
-    |> validate_required([:arrival_date, :departure_date])
+    |> cast(attrs, [:arrival_date, :departure_date, :pet_id])
+    |> validate_required([:arrival_date, :departure_date, :pet_id])
   end
 end

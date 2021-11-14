@@ -11,7 +11,8 @@ defmodule DoggerWeb.StayController do
 
   def new(conn, _params) do
     changeset = Stays.change_stay(%Stay{})
-    render(conn, "new.html", changeset: changeset)
+    pets = Dogger.Pets.list_pets()
+    render(conn, "new.html", changeset: changeset, pets: pets)
   end
 
   def create(conn, %{"stay" => stay_params}) do

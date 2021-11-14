@@ -18,7 +18,8 @@ defmodule Dogger.Stays do
 
   """
   def list_stays do
-    Repo.all(Stay)
+    stay = Repo.all(Stay)
+    Repo.preload(stay, :pet)
   end
 
   @doc """
@@ -35,7 +36,10 @@ defmodule Dogger.Stays do
       ** (Ecto.NoResultsError)
 
   """
-  def get_stay!(id), do: Repo.get!(Stay, id)
+  def get_stay!(id) do
+    stay = Repo.get!(Stay, id)
+    Repo.preload(stay, :pet)
+  end
 
   @doc """
   Creates a stay.
