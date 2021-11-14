@@ -18,6 +18,7 @@ defmodule DoggerWeb.Router do
     pipe_through :browser
     resources "/owners", OwnerController
     resources "/pets", PetController
+    resources "/stays", StayController
 
     get "/", PageController, :index
   end

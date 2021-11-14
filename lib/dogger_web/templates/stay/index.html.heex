@@ -1,0 +1,28 @@
+<h1>Listing Stays</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Arrival date</th>
+      <th>Departure date</th>
+
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+<%= for stay <- @stays do %>
+    <tr>
+      <td><%= stay.arrival_date %></td>
+      <td><%= stay.departure_date %></td>
+
+      <td>
+        <span><%= link "Show", to: Routes.stay_path(@conn, :show, stay) %></span>
+        <span><%= link "Edit", to: Routes.stay_path(@conn, :edit, stay) %></span>
+        <span><%= link "Delete", to: Routes.stay_path(@conn, :delete, stay), method: :delete, data: [confirm: "Are you sure?"] %></span>
+      </td>
+    </tr>
+<% end %>
+  </tbody>
+</table>
+
+<span><%= link "New Stay", to: Routes.stay_path(@conn, :new) %></span>

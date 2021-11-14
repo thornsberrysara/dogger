@@ -1,0 +1,18 @@
+<h1>Show Stay</h1>
+
+<ul>
+
+  <li>
+    <strong>Arrival date:</strong>
+    <%= @stay.arrival_date %>
+  </li>
+
+  <li>
+    <strong>Departure date:</strong>
+    <%= @stay.departure_date %>
+  </li>
+
+</ul>
+
+<span><%= link "Edit", to: Routes.stay_path(@conn, :edit, @stay) %></span> |
+<span><%= link "Back", to: Routes.stay_path(@conn, :index) %></span>
