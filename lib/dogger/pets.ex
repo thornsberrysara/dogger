@@ -18,8 +18,8 @@ defmodule Dogger.Pets do
 
   """
   def list_pets do
-    pets = Repo.all(Pet)
-    Repo.preload(pets, :owner)
+    Repo.all(Pet)
+    |> Repo.preload(:owner)
   end
 
   @doc """
@@ -37,8 +37,8 @@ defmodule Dogger.Pets do
 
   """
   def get_pet!(id) do
-    pet = Repo.get!(Pet, id)
-    Repo.preload(pet, :owner)
+    Repo.get!(Pet, id)
+    |> Repo.preload(:owner)
   end
 
   @doc """

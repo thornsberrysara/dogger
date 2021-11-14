@@ -36,8 +36,8 @@ defmodule Dogger.Owners do
 
   """
   def get_owner!(id) do
-    owner = Repo.get!(Owner, id)
-    Repo.preload(owner, :pets)
+    Repo.get!(Owner, id)
+    |> Repo.preload(:pets)
   end
 
   @doc """

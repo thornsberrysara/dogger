@@ -18,8 +18,8 @@ defmodule Dogger.Stays do
 
   """
   def list_stays do
-    stay = Repo.all(Stay)
-    Repo.preload(stay, :pet)
+    Repo.all(Stay)
+    |> Repo.preload(:pet)
   end
 
   @doc """
@@ -37,8 +37,8 @@ defmodule Dogger.Stays do
 
   """
   def get_stay!(id) do
-    stay = Repo.get!(Stay, id)
-    Repo.preload(stay, :pet)
+    Repo.get!(Stay, id)
+    |> Repo.preload(:pet)
   end
 
   @doc """
