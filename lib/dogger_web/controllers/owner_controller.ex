@@ -28,7 +28,8 @@ defmodule DoggerWeb.OwnerController do
 
   def show(conn, %{"id" => id}) do
     owner = Owners.get_owner!(id)
-    render(conn, "show.html", owner: owner)
+    pets = Dogger.Pets.list_pets()
+    render(conn, "show.html", owner: owner, pets: pets)
   end
 
   def edit(conn, %{"id" => id}) do

@@ -22,6 +22,15 @@
     <%= @owner.email %>
   </li>
 
+  <li>
+    <strong>Pet(s):</strong>
+    <%= for pet <- @pets do %>
+      <ul>
+      <li><%= pet.name %></li>
+      </ul>
+    <% end %>
+  </li>
+
 </ul>
 
 <span><%= link "Edit", to: Routes.owner_path(@conn, :edit, @owner) %></span> |

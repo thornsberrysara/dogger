@@ -35,7 +35,10 @@ defmodule Dogger.Owners do
       ** (Ecto.NoResultsError)
 
   """
-  def get_owner!(id), do: Repo.get!(Owner, id)
+  def get_owner!(id) do
+    owner = Repo.get!(Owner, id)
+    Repo.preload(owner, :pets)
+  end
 
   @doc """
   Creates a owner.

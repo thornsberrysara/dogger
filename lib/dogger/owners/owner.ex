@@ -7,7 +7,7 @@ defmodule Dogger.Owners.Owner do
     field :first_name, :string
     field :last_name, :string
     field :phone_number, :string
-    has_many :pets, Dogger.Owners.Owner
+    has_many :pets, Dogger.Pets.Pet
 
     timestamps()
   end
@@ -16,6 +16,7 @@ defmodule Dogger.Owners.Owner do
   def changeset(owner, attrs) do
     owner
     |> cast(attrs, [:first_name, :last_name, :phone_number, :email])
+    |> cast_assoc(:pets)
     |> validate_required([:first_name, :last_name, :phone_number, :email])
   end
 end
