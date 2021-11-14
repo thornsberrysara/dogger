@@ -34,8 +34,9 @@ defmodule DoggerWeb.StayController do
 
   def edit(conn, %{"id" => id}) do
     stay = Stays.get_stay!(id)
+    pets = Dogger.Pets.list_pets()
     changeset = Stays.change_stay(stay)
-    render(conn, "edit.html", stay: stay, changeset: changeset)
+    render(conn, "edit.html", stay: stay, changeset: changeset, pets: pets)
   end
 
   def update(conn, %{"id" => id, "stay" => stay_params}) do

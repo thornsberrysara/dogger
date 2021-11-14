@@ -35,7 +35,8 @@ defmodule DoggerWeb.PetController do
   def edit(conn, %{"id" => id}) do
     pet = Pets.get_pet!(id)
     changeset = Pets.change_pet(pet)
-    render(conn, "edit.html", pet: pet, changeset: changeset)
+    owners = Dogger.Owners.list_owners()
+    render(conn, "edit.html", pet: pet, changeset: changeset, owners: owners)
   end
 
   def update(conn, %{"id" => id, "pet" => pet_params}) do
