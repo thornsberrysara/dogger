@@ -9,7 +9,7 @@ defmodule Dogger.Pets.Pet do
     field :name, :string
     field :weight, :integer
     belongs_to :owner, Dogger.Owners.Owner
-    has_many :stay, Dogger.Stays.Stay
+    has_many :stay, Dogger.Stays.Stay, on_delete: :delete_all
 
     timestamps()
   end

@@ -7,7 +7,7 @@ defmodule Dogger.Owners.Owner do
     field :first_name, :string
     field :last_name, :string
     field :phone_number, :string
-    has_many :pets, Dogger.Pets.Pet
+    has_many :pets, Dogger.Pets.Pet, on_delete: :delete_all
 
     timestamps()
   end
