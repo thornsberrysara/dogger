@@ -24,7 +24,7 @@
 
   <li>
     <strong>Pet(s):</strong>
-    <%= for pet <- @pets do %>
+    <%= for pet <- @owner.pets do %>
       <ul>
       <li><%= pet.name %></li>
       </ul>
