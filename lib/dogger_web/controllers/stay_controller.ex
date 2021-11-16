@@ -29,7 +29,8 @@ defmodule DoggerWeb.StayController do
 
   def show(conn, %{"id" => id}) do
     stay = Stays.get_stay!(id)
-    render(conn, "show.html", stay: stay)
+    owner = Dogger.Owners.get_owner!(id)
+    render(conn, "show.html", stay: stay, owner: owner)
   end
 
   def edit(conn, %{"id" => id}) do
