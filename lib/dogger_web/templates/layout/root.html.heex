@@ -7,6 +7,9 @@
     <%= csrf_meta_tag() %>
     <%= live_title_tag assigns[:page_title] || "Dogger", suffix: " · Phoenix Framework" %>
     <link phx-track-static rel="stylesheet" href={Routes.static_path(@conn, "/assets/app.css")}/>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap');
+    </style>
     <script defer phx-track-static type="text/javascript" src={Routes.static_path(@conn, "/assets/app.js")}></script>
   </head>
   <body>
@@ -20,8 +23,8 @@
             <% end %>
           </ul>
         </nav>
-        <a href="https://phoenixframework.org/" class="phx-logo">
-          <img src={Routes.static_path(@conn, "/images/phoenix.png")} alt="Phoenix Framework Logo"/>
+        <a href="https://phoenixframework.org/" class="dogger-logo">
+          <img src={Routes.static_path(@conn, "/images/dogger.png")} alt="Dogger Logo"/>
         </a>
       </section>
     </header>
