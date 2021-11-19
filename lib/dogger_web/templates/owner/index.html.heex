@@ -20,9 +20,9 @@
       <td><%= owner.email %></td>
 
       <td>
-        <span><%= link "Show", to: Routes.owner_path(@conn, :show, owner) %></span>
-        <span><%= link "Edit", to: Routes.owner_path(@conn, :edit, owner) %></span>
-        <span><%= link "Delete", to: Routes.owner_path(@conn, :delete, owner), method: :delete, data: [confirm: "Are you sure?"] %></span>
+        <span><button class="action"><%= link "Show", to: Routes.owner_path(@conn, :show, owner) %></button></span>
+        <span><button class="action"><%= link "Edit", to: Routes.owner_path(@conn, :edit, owner) %></button></span>
+        <span><button class="action"><%= link "Delete", to: Routes.owner_path(@conn, :delete, owner), method: :delete, data: [confirm: "Are you sure?"] %></button></span>
       </td>
     </tr>
 <% end %>

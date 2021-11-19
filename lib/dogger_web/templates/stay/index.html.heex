@@ -19,9 +19,9 @@
             <td><%= stay.departure_date %></td>
 
           <td>
-            <span><%= link "Show", to: Routes.stay_path(@conn, :show, stay) %></span>
-            <span><%= link "Edit", to: Routes.stay_path(@conn, :edit, stay) %></span>
-            <span><%= link "Delete", to: Routes.stay_path(@conn, :delete, stay), method: :delete, data: [confirm: "Are you sure?"] %></span>
+            <span><button class="action"><%= link "Show", to: Routes.stay_path(@conn, :show, stay) %></button></span>
+            <span><button class="action"><%= link "Edit", to: Routes.stay_path(@conn, :edit, stay) %></button></span>
+            <span><button class="action"><%= link "Delete", to: Routes.stay_path(@conn, :delete, stay), method: :delete, data: [confirm: "Are you sure?"] %></button></span>
           </td>
           </tr>
       <% end %>
