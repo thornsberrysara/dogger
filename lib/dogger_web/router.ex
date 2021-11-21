@@ -19,9 +19,6 @@ defmodule DoggerWeb.Router do
 
   scope "/", DoggerWeb do
     pipe_through :browser
-    resources "/owners", OwnerController
-    resources "/pets", PetController
-    resources "/stays", StayController
 
     get "/", PageController, :index
   end
@@ -80,6 +77,9 @@ defmodule DoggerWeb.Router do
     get "/businesses/settings", BusinessSettingsController, :edit
     put "/businesses/settings", BusinessSettingsController, :update
     get "/businesses/settings/confirm_email/:token", BusinessSettingsController, :confirm_email
+    resources "/owners", OwnerController
+    resources "/pets", PetController
+    resources "/stays", StayController
   end
 
   scope "/", DoggerWeb do
