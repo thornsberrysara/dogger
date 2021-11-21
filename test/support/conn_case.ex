@@ -36,4 +36,30 @@ defmodule DoggerWeb.ConnCase do
     on_exit(fn -> Ecto.Adapters.SQL.Sandbox.stop_owner(pid) end)
     {:ok, conn: Phoenix.ConnTest.build_conn()}
   end
+
+  @doc """
+  Setup helper that registers and logs in businesses.
+
+      setup :register_and_log_in_business
+
+  It stores an updated connection and a registered business in the
+  test context.
+  """
+  def register_and_log_in_business(%{conn: conn}) do
+    business = Dogger.BusinessesFixtures.business_fixture()
+    %{conn: log_in_business(conn, business), business: business}
+  end
+
+  @doc """
+  Logs the given `business` into the `conn`.
+
+  It returns an updated `conn`.
+  """
+  def log_in_business(conn, business) do
+    token = Dogger.Businesses.generate_business_session_token(business)
+
+    conn
+    |> Phoenix.ConnTest.init_test_session(%{})
+    |> Plug.Conn.put_session(:business_token, token)
+  end
 end

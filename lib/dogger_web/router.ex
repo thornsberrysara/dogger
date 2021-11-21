@@ -1,6 +1,8 @@
 defmodule DoggerWeb.Router do
   use DoggerWeb, :router
 
+  import DoggerWeb.BusinessAuth
+
   pipeline :browser do
     plug :accepts, ["html"]
     plug :fetch_session
@@ -8,6 +10,7 @@ defmodule DoggerWeb.Router do
     plug :put_root_layout, {DoggerWeb.LayoutView, :root}
     plug :protect_from_forgery
     plug :put_secure_browser_headers
+    plug :fetch_current_business
   end
 
   pipeline :api do
@@ -54,5 +57,38 @@ defmodule DoggerWeb.Router do
 
       forward "/mailbox", Plug.Swoosh.MailboxPreview
     end
+  end
+
+  ## Authentication routes
+
+  scope "/", DoggerWeb do
+    pipe_through [:browser, :redirect_if_business_is_authenticated]
+
+    get "/businesses/register", BusinessRegistrationController, :new
+    post "/businesses/register", BusinessRegistrationController, :create
+    get "/businesses/log_in", BusinessSessionController, :new
+    post "/businesses/log_in", BusinessSessionController, :create
+    get "/businesses/reset_password", BusinessResetPasswordController, :new
+    post "/businesses/reset_password", BusinessResetPasswordController, :create
+    get "/businesses/reset_password/:token", BusinessResetPasswordController, :edit
+    put "/businesses/reset_password/:token", BusinessResetPasswordController, :update
+  end
+
+  scope "/", DoggerWeb do
+    pipe_through [:browser, :require_authenticated_business]
+
+    get "/businesses/settings", BusinessSettingsController, :edit
+    put "/businesses/settings", BusinessSettingsController, :update
+    get "/businesses/settings/confirm_email/:token", BusinessSettingsController, :confirm_email
+  end
+
+  scope "/", DoggerWeb do
+    pipe_through [:browser]
+
+    delete "/businesses/log_out", BusinessSessionController, :delete
+    get "/businesses/confirm", BusinessConfirmationController, :new
+    post "/businesses/confirm", BusinessConfirmationController, :create
+    get "/businesses/confirm/:token", BusinessConfirmationController, :edit
+    post "/businesses/confirm/:token", BusinessConfirmationController, :update
   end
 end

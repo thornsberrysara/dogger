@@ -1,0 +1,10 @@
+<ul>
+<%= if @current_business do %>
+  <li><%= @current_business.email %></li>
+  <li><%= link "Settings", to: Routes.business_settings_path(@conn, :edit) %></li>
+  <li><%= link "Log out", to: Routes.business_session_path(@conn, :delete), method: :delete %></li>
+<% else %>
+  <li><%= link "Register", to: Routes.business_registration_path(@conn, :new) %></li>
+  <li><%= link "Log in", to: Routes.business_session_path(@conn, :new) %></li>
+<% end %>
+</ul>
