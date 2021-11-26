@@ -7,6 +7,7 @@ defmodule Dogger.Businesses.Business do
     field :password, :string, virtual: true, redact: true
     field :hashed_password, :string, redact: true
     field :confirmed_at, :naive_datetime
+    has_many :owners, Dogger.Owners.Owner
 
     timestamps()
   end
@@ -31,6 +32,7 @@ defmodule Dogger.Businesses.Business do
   def registration_changeset(business, attrs, opts \\ []) do
     business
     |> cast(attrs, [:email, :password])
+    |> cast_assoc(:owners)
     |> validate_email()
     |> validate_password(opts)
   end
