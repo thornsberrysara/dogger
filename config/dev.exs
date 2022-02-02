@@ -2,7 +2,7 @@ import Config
 
 # Configure your database
 config :dogger, Dogger.Repo,
-  username: "sarathornsberry",
+  username: "postgres",
   password: "postgres",
   database: "dogger",
   hostname: "localhost",
