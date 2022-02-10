@@ -14,7 +14,7 @@
   <%= error_tag f, :departure_date %>
 
   <%= label f, :pet_id %>
-  <%= select(f, :pet_id, Enum.map(@pets, &{"#{&1.name}", &1.id})) %>
+  <%= select(f, :pet_id, Enum.map(@pets, &{"#{&1.name} - #{&1.owner.first_name} #{&1.owner.last_name}", &1.id})) %>
   <%= error_tag f, :pet_id %>
 
   <div>
