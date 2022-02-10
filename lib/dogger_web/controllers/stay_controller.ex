@@ -23,14 +23,17 @@ defmodule DoggerWeb.StayController do
         |> redirect(to: Routes.stay_path(conn, :show, stay))
 
       {:error, %Ecto.Changeset{} = changeset} ->
-        render(conn, "new.html", changeset: changeset)
+        pets = Dogger.Pets.list_pets()
+        render(conn, "new.html", changeset: changeset, pets: pets)
     end
   end
 
   def show(conn, %{"id" => id}) do
-    stay = Stays.get_stay!(id)
-    owner = Dogger.Owners.get_owner!(id)
-    render(conn, "show.html", stay: stay, owner: owner)
+    stay =
+      Stays.get_stay!(id)
+      |> Dogger.Repo.preload(pet: :owner)
+
+    render(conn, "show.html", stay: stay, owner: stay.pet.owner)
   end
 
   def edit(conn, %{"id" => id}) do
@@ -50,7 +53,8 @@ defmodule DoggerWeb.StayController do
         |> redirect(to: Routes.stay_path(conn, :show, stay))
 
       {:error, %Ecto.Changeset{} = changeset} ->
-        render(conn, "edit.html", stay: stay, changeset: changeset)
+        pets = Dogger.Pets.list_pets()
+        render(conn, "edit.html", stay: stay, changeset: changeset, pets: pets)
     end
   end
 

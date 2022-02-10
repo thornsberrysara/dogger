@@ -38,7 +38,6 @@ defmodule Dogger.Stays do
   """
   def get_stay!(id) do
     Repo.get!(Stay, id)
-    |> Repo.preload(:pet)
   end
 
   @doc """

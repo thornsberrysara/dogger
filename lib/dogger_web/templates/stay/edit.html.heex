@@ -1,5 +1,5 @@
 <h1>Edit Stay</h1>
 
-<%= render "form.html", Map.put(assigns, :action, Routes.stay_path(@conn, :update, @stay)) %>
+<%= render "form.html", Map.put(assigns, :action, Routes.stay_path(@conn, :update, @stay, @pets)) %>
 
 <span><%= link "Back", to: Routes.stay_path(@conn, :index) %></span>
