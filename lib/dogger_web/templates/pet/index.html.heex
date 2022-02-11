@@ -3,12 +3,8 @@
 <table>
   <thead>
     <tr>
-      <th>Name</th>
+      <th>Pet Name</th>
       <th>Owner Name</th>
-      <th>Breed</th>
-      <th>DOB</th>
-      <th>Weight</th>
-      <th>Medications</th>
 
       <th></th>
     </tr>
@@ -18,10 +14,6 @@
     <tr>
       <td><%= pet.name %></td>
       <td><%= pet.owner.first_name %> <%= pet.owner.last_name %></td>
-      <td><%= pet.breed %></td>
-      <td><%= pet.dob %></td>
-      <td><%= pet.weight %></td>
-      <td><%= pet.medications %></td>
 
       <td>
         <span><button class="action"><%= link "Show", to: Routes.pet_path(@conn, :show, pet) %></button></span>
