@@ -5,23 +5,23 @@ defmodule Dogger.Pets.Pet do
   schema "pets" do
     field :breed, Ecto.Enum,
       values: [
-        :Australian_Shepherd,
+        :"Australian Shepherd",
         :Beagle,
         :Boxer,
         :Bulldog,
         :Corgi,
         :Dachshund,
-        :Doberman_Pinscher,
-        :German_Shepherd,
-        :Golden_Retriever,
-        :Great_Dane,
+        :"Doberman Pinscher",
+        :"German Shepherd",
+        :"Golden Retriever",
+        :"Great Dane",
         :Husky,
-        :Labrador_Retriever,
+        :"Labrador Retriever",
         :Pointer,
         :Poodle,
         :Rottweiler,
         :Schnauzer,
-        :Shih_Tzu,
+        :"Shih Tzu",
         :Yorkie
       ]
 
