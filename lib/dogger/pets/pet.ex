@@ -3,7 +3,28 @@ defmodule Dogger.Pets.Pet do
   import Ecto.Changeset
 
   schema "pets" do
-    field :breed, :string
+    field :breed, Ecto.Enum,
+      values: [
+        :Australian_Shepherd,
+        :Beagle,
+        :Boxer,
+        :Bulldog,
+        :Corgi,
+        :Dachshund,
+        :Doberman_Pinscher,
+        :German_Shepherd,
+        :Golden_Retriever,
+        :Great_Dane,
+        :Husky,
+        :Labrador_Retriever,
+        :Pointer,
+        :Poodle,
+        :Rottweiler,
+        :Schnauzer,
+        :Shih_Tzu,
+        :Yorkie
+      ]
+
     field :dob, :date
     field :medications, :boolean, default: false
     field :name, :string

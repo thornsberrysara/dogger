@@ -10,15 +10,15 @@
   <%= error_tag f, :name %>
 
   <%= label f, :owner_id %>
-  <%= select(f, :owner_id, Enum.map(@owners, &{"#{&1.first_name} #{&1.last_name}", &1.id})) %>
+  <%= select(f, :owner_id, Enum.map(@owners, &{"#{&1.first_name} #{&1.last_name}", &1.id}), prompt: "Select an owner") %>
   <%= error_tag f, :owner_id %>
 
   <%= label f, :breed %>
-  <%= text_input f, :breed %>
+  <%= select f, :breed, Ecto.Enum.values(Dogger.Pets.Pet, :breed), prompt: "Select a breed" %>
   <%= error_tag f, :breed %>
 
-  <%= label f, :dob %>
-  <%= date_input f, :dob %>
+  <%= label f, "Date of birth" %>
+  <%= date_input f, :dob, prompt: "Select birth date" %>
   <%= error_tag f, :dob %>
 
   <%= label f, :weight %>
