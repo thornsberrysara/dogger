@@ -18,7 +18,8 @@ defmodule Dogger.Pets do
 
   """
   def list_pets do
-    Repo.all(Pet)
+    from(p in Pet, order_by: [asc: p.name])
+    |> Repo.all()
     |> Repo.preload(:owner)
   end
 

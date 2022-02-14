@@ -18,7 +18,8 @@ defmodule Dogger.Owners do
 
   """
   def list_owners do
-    Repo.all(Owner)
+    from(o in Owner, order_by: [asc: o.last_name])
+    |> Repo.all()
   end
 
   @doc """
