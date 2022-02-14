@@ -18,7 +18,8 @@ defmodule Dogger.Stays do
 
   """
   def list_stays do
-    Repo.all(Stay)
+    from(s in Stay, order_by: [asc: s.arrival_date])
+    |> Repo.all()
     |> Repo.preload(:pet)
   end
 
