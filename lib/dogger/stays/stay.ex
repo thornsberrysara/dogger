@@ -3,8 +3,8 @@ defmodule Dogger.Stays.Stay do
   import Ecto.Changeset
 
   schema "stays" do
-    field :arrival_date, :date
-    field :departure_date, :date
+    field :arrival_date, :date, default: Date.utc_today()
+    field :departure_date, :date, default: Date.utc_today()
     belongs_to :pet, Dogger.Pets.Pet
 
     timestamps()
