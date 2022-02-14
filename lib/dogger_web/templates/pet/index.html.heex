@@ -12,8 +12,8 @@
   <tbody>
 <%= for pet <- @pets do %>
     <tr>
-      <td><%= pet.name %></td>
-      <td><%= pet.owner.first_name %> <%= pet.owner.last_name %></td>
+      <td><%= capitalize_name(pet.name) %></td>
+      <td><%= capitalize_owner_first_name(pet.owner.first_name) %> <%= capitalize_owner_last_name(pet.owner.last_name) %></td>
 
       <td>
         <span><button class="action"><%= link "Show", to: Routes.pet_path(@conn, :show, pet) %></button></span>

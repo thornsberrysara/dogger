@@ -14,8 +14,8 @@
   <tbody>
 <%= for owner <- @owners do %>
     <tr>
-      <td><%= owner.first_name %></td>
-      <td><%= owner.last_name %></td>
+      <td><%= capitalize_first_name(owner.first_name) %></td>
+      <td><%= capitalize_last_name(owner.last_name) %></td>
       <td><%= format_phone_number(owner.phone_number) %></td>
       <td><%= owner.email %></td>
 
