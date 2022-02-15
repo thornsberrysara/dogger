@@ -14,7 +14,8 @@ defmodule Dogger.OwnersFixtures do
         email: "some email",
         first_name: "some first_name",
         last_name: "some last_name",
-        phone_number: 42
+        phone_number: "42",
+        pets: []
       })
       |> Dogger.Owners.create_owner()
 
