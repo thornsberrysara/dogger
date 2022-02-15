@@ -9,8 +9,8 @@
 
   <li>
     <strong>Owner:</strong>
-    <%= @owner.first_name %>
-    <%= @owner.last_name %>
+    <%= capitalize_owner_first_name(@owner.first_name) %>
+    <%= capitalize_owner_last_name(@owner.last_name) %>
   </li>
 
   <li>
