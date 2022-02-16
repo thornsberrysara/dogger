@@ -12,7 +12,14 @@ defmodule Dogger.StaysFixtures do
       attrs
       |> Enum.into(%{
         arrival_date: ~D[2021-11-13],
-        departure_date: ~D[2021-11-13]
+        departure_date: ~D[2021-11-13],
+        pets: [
+          breed: "Golden Retriever",
+          dob: "~D[2021-11-13]",
+          medications: false,
+          name: "some first_name",
+          weight: 42
+        ]
       })
       |> Dogger.Stays.create_stay()
 
