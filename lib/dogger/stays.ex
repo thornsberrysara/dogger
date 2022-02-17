@@ -18,7 +18,9 @@ defmodule Dogger.Stays do
 
   """
   def list_stays do
-    from(s in Stay, order_by: [asc: s.arrival_date])
+    today = DateTime.utc_now()
+
+    from(s in Stay, order_by: [asc: s.arrival_date], where: s.departure_date >= ^today)
     |> Repo.all()
     |> Repo.preload(:pet)
   end
