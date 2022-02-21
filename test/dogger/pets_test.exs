@@ -8,7 +8,13 @@ defmodule Dogger.PetsTest do
 
     import Dogger.PetsFixtures
 
-    @invalid_attrs %{breed: nil, dob: nil, medications: nil, name: nil, weight: nil}
+    @invalid_attrs %{
+      breed: nil,
+      dob: nil,
+      medications: nil,
+      name: nil,
+      weight: nil
+    }
 
     test "list_pets/0 returns all pets" do
       pet = pet_fixture()
@@ -21,10 +27,16 @@ defmodule Dogger.PetsTest do
     end
 
     test "create_pet/1 with valid data creates a pet" do
-      valid_attrs = %{breed: "some breed", dob: ~D[2021-11-08], medications: true, name: "some name", weight: 42}
+      valid_attrs = %{
+        breed: :Boxer,
+        dob: ~D[2021-11-08],
+        medications: true,
+        name: "some name",
+        weight: 42
+      }
 
       assert {:ok, %Pet{} = pet} = Pets.create_pet(valid_attrs)
-      assert pet.breed == "some breed"
+      assert pet.breed == :Boxer
       assert pet.dob == ~D[2021-11-08]
       assert pet.medications == true
       assert pet.name == "some name"
@@ -37,10 +49,17 @@ defmodule Dogger.PetsTest do
 
     test "update_pet/2 with valid data updates the pet" do
       pet = pet_fixture()
-      update_attrs = %{breed: "some updated breed", dob: ~D[2021-11-09], medications: false, name: "some updated name", weight: 43}
+
+      update_attrs = %{
+        breed: :Corgi,
+        dob: ~D[2021-11-09],
+        medications: false,
+        name: "some updated name",
+        weight: 43
+      }
 
       assert {:ok, %Pet{} = pet} = Pets.update_pet(pet, update_attrs)
-      assert pet.breed == "some updated breed"
+      assert pet.breed == :Corgi
       assert pet.dob == ~D[2021-11-09]
       assert pet.medications == false
       assert pet.name == "some updated name"

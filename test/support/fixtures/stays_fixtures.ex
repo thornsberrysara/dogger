@@ -14,10 +14,10 @@ defmodule Dogger.StaysFixtures do
         arrival_date: ~D[2021-11-13],
         departure_date: ~D[2021-11-13],
         pets: [
-          breed: "Golden Retriever",
+          breed: :Boxer,
           dob: "~D[2021-11-13]",
           medications: false,
-          name: "some first_name",
+          name: "some name",
           weight: 42
         ]
       })

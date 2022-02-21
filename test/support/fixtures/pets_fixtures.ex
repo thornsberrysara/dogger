@@ -11,11 +11,17 @@ defmodule Dogger.PetsFixtures do
     {:ok, pet} =
       attrs
       |> Enum.into(%{
-        breed: "some breed",
+        breed: :Boxer,
         dob: ~D[2021-11-08],
         medications: true,
         name: "some name",
-        weight: 42
+        weight: 42,
+        owner: [
+          email: "some email",
+          first_name: "some first_name",
+          last_name: "some last_name",
+          phone_number: "5555555555"
+        ]
       })
       |> Dogger.Pets.create_pet()
 

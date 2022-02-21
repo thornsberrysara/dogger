@@ -40,6 +40,6 @@ defmodule Dogger.Pets.Pet do
     pet
     |> cast(attrs, [:name, :owner_id, :breed, :dob, :weight, :medications])
     |> cast_assoc(:stay)
-    |> validate_required([:name, :owner_id, :breed, :dob, :weight, :medications])
+    |> validate_required([:name, :breed, :dob, :weight, :medications])
   end
 end
